@@ -1,0 +1,12 @@
+@define-color color-1 rgb(255, 255, 255);
+@define-color color-2 rgb(50, 50, 50); 
+@define-color color-3 rgb(180, 180, 180);
+
+@define-color foreground-color @color-2;
+@define-color background-color alpha(@color-1, 0.85);
+
+@define-color bshadow-color rgb(50, 50, 50);
+
+@import "../../../.cache/wal/colors-waybar.css";
+@define-color color-2 @color11;
+

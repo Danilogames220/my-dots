@@ -1,0 +1,79 @@
+@import "../assets/colors/light.css";
+
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+window {
+	background-color: rgba(12, 12, 12, 0.8);
+}
+
+grid {
+        background-color: alpha(@color-1, 0.8);
+        margin: 125px 0;
+
+        border-radius: 999px;
+}
+
+button {
+        color: @color-2;
+	background-color: alpha(#b00b69, 0);
+
+	border-width: 0px;
+        border-radius: 0;
+        
+        font-weight: 600;
+        margin: 35px 5px;
+        border-radius: 999px;
+
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 57%;
+        
+}
+
+#lock {
+        background-image: image(url("./lock.svg"), url("./lock.svg"));
+        margin-left: 35px;
+}
+#lock:hover, #lock:active, #lock:focus {
+        background-image: image(url("./selected/lock.svg"), url("./selected/lock.svg"));
+}
+
+#logout {
+        background-image: image(url("./logout.svg"), url("./logout.svg"));
+}
+#logout:hover, #logout:active, #logout:focus {
+        background-image: image(url("./selected/logout.svg"), url("./selected/logout.svg"));
+}
+
+#shutdown {
+        background-image: image(url("./shutdown.svg"), url("./shutdown.svg"));
+}
+#shutdown:hover, #shutdown:active, #shutdown:focus {
+        background-image: image(url("./selected/shutdown.svg"), url("./selected/shutdown.svg"));
+}
+
+#reboot {
+        background-image: image(url("./reboot.svg"), url("./reboot.svg"));
+        margin-right: 35px;
+}
+#reboot:hover, #reboot:active, #reboot:focus {
+        background-image: image(url("./selected/reboot.svg"), url("./selected/reboot.svg"));
+}
+
+
+button:focus  {
+	background-color: @color-2;
+        color: @color-1;
+	outline-style: none;
+
+        padding: 0 150px;
+
+	background-size: 27%;
+}
+button:hover {
+        background-color: alpha(@color-3, 0.8);
+        color: @color-1;
+}

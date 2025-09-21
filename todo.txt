@@ -1,0 +1,7 @@
+make better low-power script
+
+- credit 
+    - wallpapers
+    - mouse theme
+- update images
+update readme after all done

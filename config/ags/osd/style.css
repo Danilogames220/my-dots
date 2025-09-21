@@ -1,0 +1,46 @@
+@import "../../assets/colors/light.css";
+* {
+        font-family: SpaceGrotesk;
+        color: @color-2;
+}
+window {
+        background: none;
+}
+
+.content {
+        background-color: alpha(@color-1, 0.8);
+        border-radius: 20px;
+        margin: 6px;
+        padding: 2px 3px;
+	box-shadow: 0 0 3px #000000;
+}
+
+
+.slider {
+        padding: 5px;
+}
+.slider trough {
+        border: none;
+        padding: 2px 0;
+        background-color: alpha(@color-3, 0.8);
+        border-radius: 999px;
+}
+.slider highlight {
+        border: none;
+        padding: 12px 0;
+        border-radius: 999px;
+
+        background-color: @color-2;
+}
+.slider slider {
+        all: unset;
+}
+
+.value {
+        margin: 0px;
+}
+
+.icon {
+        margin-left: 5px;
+        margin-right: 2px;
+}

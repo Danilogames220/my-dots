@@ -1,0 +1,330 @@
+@import "../assets/colors/light.css";
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, "Space Grotesk", MaterialIcons;
+    font-size: 16px;
+}
+
+window#waybar {
+    all: unset;
+}
+
+
+window#waybar > box {
+    /*margin: 7px;*/
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    /*box-shadow: inset 0 -3px transparent;*/
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+	/*all:unset;*/
+}
+
+tooltip {
+    border-radius: 20px;
+    
+    background-color: @background-color;
+    color: @color-2;
+
+    /*font-weight: 900;*/
+}
+
+#custom-app_launcher,
+#sys_shortcuts,
+#shortcuts,
+#window,
+
+#workspaces,
+
+#clock,
+#battery,
+#backlight,
+#network,
+#bluetooth,
+#pulseaudio,
+#custom-power
+{
+    background-color: @background-color;
+    color: @color-2;
+    opacity: 0.90;
+
+    margin: 3px 3px;
+    
+    border-radius: 999px;
+    padding: 0 10px;
+    box-shadow: 0 0 3px rgba(26, 26, 26, 0.48);
+}
+
+.modules-right *{
+	margin: 0 10px;
+}
+
+
+#custom-app-launcher{
+
+    /*box-shadow: 0 0 15px #ffffff;*/
+}
+
+
+#custom-app_launcher {
+    font-weight: 900;
+    font-size: 19px;
+    padding: 0 12px;
+}
+#custom-app_launcher:hover,
+#custom-power:hover {
+    background-color: @color-1;
+}
+
+
+#sys_shortcuts,
+#shortcuts {
+    font-weight: 900;
+    padding: 0 1px;
+}
+#sys_shortcuts *,
+#shortcuts *{
+    padding: 0 6px;
+
+    border-radius: 999px;
+    
+    margin: 4px 1px;
+
+    transition: all 0.175s ease;
+}
+
+#sys_shortcuts > widget:first-child > *,
+#shortcuts > widget:first-child > * {
+    margin-left: 3px;
+}
+#sys_shortcuts > widget:last-child > *,
+#shortcuts > widget:last-child > * {
+    margin-right: 3px;
+}
+
+
+#sys_shortcuts *:hover,
+#shortcuts *:hover {
+    background-color: @background-color;
+    color: @color-2
+}
+
+#sys_shortcuts {
+	background-color: alpha(@color-2, 0.85);
+	color: @color-1;
+    	box-shadow: 
+		inset 0 0 0 4px @color-1,
+		0 0 3px rgba(26, 26, 26, 0.48);
+
+}
+#sys_shortcuts *:hover {
+}
+
+
+#workspaces {
+    padding: 0 3px;
+}
+
+
+#workspaces button {
+    	/* stop button from shinking when hover*/
+	border: none;
+	box-shadow: none;
+	text-shadow: none;
+	
+
+	border-radius: 999px;
+    	background: rgba(225, 0, 0, 0.5);/*alpha(@color-3, 0.1);*/
+    	color: transparent;
+    	
+	margin: 4px 2px;
+    	padding: 0 5px;
+
+	border-radius: 999px;
+	background-color: alpha(@color-3, 0.85);
+	color: transparent;
+
+
+
+	transition: all 0.225s ease;
+}
+
+#workspaces button.active {
+    	padding: 0 30px;
+    	background-color: @color-2;
+	transition: all 0.225s ease;
+}
+
+/*#workspaces button:not(.active) {
+    background-color: #eb4d4b;
+}*/
+
+
+
+
+#pulseaudio {
+	border-radius: 999px 0 0 999px;
+}
+
+#battery {
+	border-radius: 0;
+	margin: 3px 2px;
+}
+#battery.charging, #battery.plugged {
+    color: @background-color;
+    background-color: alpha(@color-2, 0.85);
+}
+/*@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}*/
+
+
+#backlight {
+	border-radius: 0 999px 999px 0;
+}
+
+
+#clock {
+    /*background-color: #ffffff;
+    color: #000000;*/
+}
+
+
+#custom-power {
+    	font-weight: 900;
+	padding: 0 10px;
+
+}
+
+/* # --- SIDE BAR --- # */
+
+/*#window 
+{
+	border-radius: 999px;
+	padding: 9px 0;
+	padding-left: 1px;
+
+}*/
+
+
+#window {
+    padding: 10px;
+    margin: 0 5px;
+    
+    background-color: @background-color;
+    color: #000;
+}
+
+
+/* Using steps() instead of linear as a timing function to limit cpu usage
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+
+#backlight {
+    background-color: #90b1b1;
+}
+
+#network {
+    background-color: #2980b9;
+    border-radius: 0 15px 15px 15px;
+}
+
+#network.disconnected {
+    background-color: #f53c3c;
+}
+
+#pulseaudio {
+    background-color: #f1c40f;
+    color: #000000;
+    border-radius: 15px 0 15px 0;
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+
+
+#temperature {
+    background-color: #f0932b;
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: white;
+}
+
+#privacy-item.screenshare {
+    background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+    background-color: #1ca000;
+}
+
+#privacy-item.audio-out {
+    background-color: #0069d4;
+}*/
+#custom-notification {
+	font-family: MaterialIcons;
+}
+

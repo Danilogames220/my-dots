@@ -1,0 +1,216 @@
+// TODO remove some modules to put on a separe dashboard
+{
+    "position": "bottom", 
+    "height": 41,
+    
+    "margin-bottom": 10,
+    "margin-left": 15,
+    "margin-right": 15,
+    
+    "spacing": 0, 
+    
+    "modules-left": [
+	"custom/app_launcher",
+	"group/sys_shortcuts",
+	"group/shortcuts"
+    ],
+    "modules-center": [
+	"hyprland/workspaces"
+    ],
+    "modules-right": [
+        //"temperature",
+	"bluetooth",
+        "network",
+        "pulseaudio",
+	"battery",
+	"backlight",
+        "clock",
+        "custom/power"
+    ],
+    "group/sys_shortcuts": {
+	"modules" : [
+	    "custom/app_search",
+	    "custom/change_wallpaper",
+	    //"custom/darkmode",
+	    "custom/open_config"
+    	],
+	"orientation": "horizontal"
+    },
+    "group/shortcuts": {
+	"modules": [
+            "custom/file_manager",
+	    "custom/browser",
+	    "custom/notification"
+	],
+	"orientation": "horizontal"
+    },
+
+    "group/wireless": {
+	"modules": [
+	],
+	"orientation": "horizontal"
+    },
+
+
+
+    // Modules configuration
+     "hyprland/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "warp-on-scroll": false,
+         "format": "{icon}",
+	 "tooltip": true,
+         "tooltip-format": "{name}: {icon}",
+         "format-icons": {
+             "active": "",
+             "default": ""
+         },
+	 "persistent-workspaces": {
+                "*": [ 1,2,3,4,5 ]
+         }
+     },
+    "clock": {
+        //"timezone": "America/New_York",
+        "interval": 1, // deafult: 60 (seconds) 
+
+        "format": "{:%H:%M}", // "{:%H:%M:%s}" for seconds
+        "format-alt": "{:%Y-%m-%d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+
+
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": " {percent}%",
+        //"format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "interval": 1,
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+    "bluetooth": {
+	/*"format": "",*/
+	"format-disabled": "!",
+	"tooltip-format-disabled": " disabled",
+
+	"format-off": "!",
+	"tooltip-format-off": " off",
+	
+	"format-on": "",
+	"tooltip-format-on": " on",
+
+	"format-connected": "*",
+	"tooltip-format-connected": "devices: {device_enumerate}",
+	"tooltip-format-enumerate-connected": "\n{device_alias}({status})",
+
+
+	"on-click": "exec blueman-manager"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "",
+        "format-ethernet": "",
+	"format-disconnected": "⚠",
+
+	"tooltip-format-disconnected": "Error",
+        "tooltip-format-wifi": " {essid}({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname} 🖧 "
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}",
+        "format-bluetooth": "{icon} {volume}",
+        "format-bluetooth-muted": " ",
+        "format-muted": " ",
+        /*"format-source": "{volume}% ",
+        "format-source-muted": "",*/
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format" : "⏻",
+	"on-click" : "exec wlogout -b 4",
+	"tooltip" : true,
+	"tooltip-format" : "log-out"
+    },
+
+    // TODO
+    // more detailed version of the launcher
+    "custom/app_launcher": {
+	"format" : "Apps",
+	"on-click" : "exec echo 'not done yet'",
+	"tooltip-format" : "See all avaiable applications in the system"
+    },
+
+    // shortcuts
+    "custom/app_search": {
+	"format" : "",
+	"on-click" : "exec bash ~/.config/ags/app-launcher.sh",
+	"tooltip-format" : "Search for a specific app"
+    },
+    "custom/file_manager": {
+	"format" : "",
+	"on-click" : "exec dolphin",
+	"tooltip-format" : "Lauch your prefered file manager"
+    },
+    "custom/browser": {
+	"format" : "",
+	"on-click" : "exec firefox",
+	"tooltip-format" : "Navigate the internet with your prefered browser"
+    },
+
+    "custom/change_wallpaper": {
+	"format" : "",
+	"on-click-right": "exec bash ~/.config/assets/scripts/reset-p-style.sh",
+	"on-click": "exec bash ~/.config/ags/wall-picker.sh",
+	"tooltip-format" : "GUI inteface to switch wallpapers"
+    },
+//    "custom/notification": {
+//	"format" : "", // 
+//	"on-click" : "exec kitty nvim ~/.config/hypr/hyprland.conf",
+//	"tooltip-format" : "Configure hyprland"
+//    },
+    // TODO
+    "custom/open_config": {
+	"format" : "",
+	"on-click" : "exec kitty nvim ~/.config/hypr/hyprland.conf",
+	"tooltip-format" : "Configure hyprland"
+    },
+    "custom/darkmode": {
+	"format" : "",
+	"on-click" : "exec kitty nvim ~/.config/hypr/hyprland.conf",
+	"tooltip-format" : "Change theme light/dark mode"
+    }
+
+}

@@ -1,0 +1,7 @@
+window {
+        background: none;
+}
+.content {
+        background-color: alpha(@theme_bg_color, 0.5);
+}
+

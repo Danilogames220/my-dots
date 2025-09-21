@@ -1,0 +1,2 @@
+this was my first widget in ags, made to learn how to use astal.
+since it isnt very important, im gonna finish it in version 1 :P

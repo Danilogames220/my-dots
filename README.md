@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 # d-Hypr (WORK IN PROGRESS)
 My arch-linux setup
+=======
+# d-Hypr (Version 0.1)
+My daily arch-linux setup
+>>>>>>> afd0257 (almost done)
 
 - window manager: hyprland
 - bar: waybar
@@ -23,3 +28,10 @@ My arch-linux setup
 - grim (take screenshots)
 - kitty (terminal)
 - dolphin
+<<<<<<< HEAD
+=======
+
+## credits
+mouse theme: https://github.com/ful1e5/Bibata_Cursor
+abstract wallpapers:
+>>>>>>> afd0257 (almost done)
