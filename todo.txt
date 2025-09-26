@@ -1,7 +1,7 @@
-make better low-power script
+- add custom gtk theme
 
 - credit 
-    - wallpapers
+    - atabstract/jjk wallpapers
     - mouse theme
 - update images
 update readme after all done
