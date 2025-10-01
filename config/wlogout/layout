@@ -1,4 +1,10 @@
 {
+    "label" : "cancel",
+    "action" : "",
+    "text" : "Cancel",
+    "keybind" : "1"
+}
+{
     "label" : "lock",
     "action" : "hyprlock",
     "text" : "Lock",

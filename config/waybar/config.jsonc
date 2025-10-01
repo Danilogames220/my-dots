@@ -30,7 +30,7 @@
     "group/sys_shortcuts": {
 	"modules" : [
 	    "custom/app_search",
-	    "custom/change_wallpaper",
+	    //"custom/change_wallpaper",
 	    //"custom/darkmode",
 	    "custom/open_config"
     	],
@@ -160,7 +160,7 @@
     },
     "custom/power": {
         "format" : "⏻",
-	"on-click" : "exec wlogout -b 4",
+	"on-click" : "exec wlogout -b 5",
 	"tooltip" : true,
 	"tooltip-format" : "log-out"
     },
@@ -180,7 +180,7 @@
 	"tooltip-format" : "Search for a specific app"
     },
     "custom/file_manager": {
-	"format" : "",
+	"format" : "",
 	"on-click" : "exec dolphin",
 	"tooltip-format" : "Lauch your prefered file manager"
     },

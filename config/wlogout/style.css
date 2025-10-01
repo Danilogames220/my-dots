@@ -11,7 +11,7 @@ window {
 
 grid {
         background-color: alpha(@color-1, 0.8);
-        margin: 125px 0;
+        margin: 137px 0;
 
         border-radius: 999px;
 }
@@ -22,7 +22,7 @@ button {
 
 	border-width: 0px;
         border-radius: 0;
-        
+
         font-weight: 600;
         margin: 35px 5px;
         border-radius: 999px;
@@ -33,9 +33,16 @@ button {
         
 }
 
+#cancel {
+        background-image: image(url("./cancel.svg"), url("./cancel.svg"));
+        margin-left: 35px;
+}
+#cancel:hover, #cancel:active, #cancel:focus {
+        background-image: image(url("./selected/cancel.svg"), url("./selected/cancel.svg"));
+}
+
 #lock {
         background-image: image(url("./lock.svg"), url("./lock.svg"));
-        margin-left: 35px;
 }
 #lock:hover, #lock:active, #lock:focus {
         background-image: image(url("./selected/lock.svg"), url("./selected/lock.svg"));
