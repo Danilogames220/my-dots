@@ -1,7 +1,4 @@
-- fix bug in the osd
-
 - credit 
     - atabstract/jjk wallpapers
     - mouse theme
 - update images
-update readme after all done
