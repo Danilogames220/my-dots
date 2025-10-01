@@ -1,14 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 # WARNING: if the script is stopped while run_while() is running, run_while() is gonna continue to run
 
 # --- SETTINGS --- #
 lp_percentage=10
-lp_brightness=10
+lp_brightness=15
 # these two are in seconds
 bat_check_interval=1
 rh_interval=30
 
-notif_sound_path="~/.config/sounds/volume-change.ogg"
+notif_sound_path="~/.config/assets/sounds/volume-change.ogg"
 
 get_battery_val() {
         echo $(upower -i "$(upower -e | grep BAT)" | grep -E "percentage" | awk '{print $2}' | tr -d '%')
@@ -17,7 +17,7 @@ get_brightness() {
         current=$(brightnessctl g)
         max=$(brightnessctl m)
 
-        awk "begin { print(($current / $max) * 100) }"
+        awk "BEGIN { print(($current / $max) * 100) }"
 }
 set_brightness() {
         brightnessctl s "$1%"
@@ -32,7 +32,7 @@ low_power_ran=0
 not_low_power_ran=1
 
 # Temp file to act as shared flag
-END_THREAD_FILE="/tmp/low-power-temp"
+END_THREAD_FILE="/tmp/lpt"
 
 # function to run while is low power
 run_while() {
@@ -42,7 +42,7 @@ run_while() {
                         break
                 fi
 
-                notify-send 'Low Power!' "Please connect your device to a charger" -t 60000
+                notify-send "Low Power! ($battery_val%)" "Please connect your device to a charger" -t 60000
                 ffplay -nodisp -autoexit "$notif_sound_path"
 
                 sleep "$rh_interval"
@@ -68,6 +68,7 @@ run_after() {
 
 while true; do
         battery_val=$(get_battery_val)
+        #echo $battery_val
 
         if [[ $battery_val -le $lp_percentage ]]; then
                 is_low_power=1

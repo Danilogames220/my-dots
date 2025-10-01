@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=d-Theme
+Comment=Work in progress
+ncoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=d-Theme
+MetacityTheme=d-Theme
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24

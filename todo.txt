@@ -1,4 +1,4 @@
-- add custom gtk theme
+- fix bug in the osd
 
 - credit 
     - atabstract/jjk wallpapers

@@ -1,0 +1,20 @@
+/*
+@define-color color-1 rgb(255, 255, 255);
+@define-color color-2 rgb(50, 50, 50); 
+@define-color color-3 rgb(180, 180, 180); 
+*/
+
+@import url("../../../.config/assets/colors/light.css");
+
+
+/* ---  THEME COLORS --- */
+@define-color theme_bg_color @color-1;
+@define-color theme_fg_color @color-2;
+@define-color theme_text_color rgb(10, 10, 10);
+@define-color theme_base_color @color-2;
+
+@define-color theme_selected_bg_color @color-2;
+@define-color theme_selected_fg_color @color-1;
+
+@define-color accent_bg_color @color-2;
+

@@ -16,6 +16,8 @@ const FONT_SIZE = 20
 const TIMEOUT = 2000
 
 const is_visible = Variable(false)
+const volume_visible = Variable(false)
+const brightness_visible = Variable(false)
 
 // brightness class
 // TODO move this to a seprate file
@@ -72,23 +74,14 @@ class Brightness extends GObject.Object {
 
 }
 
-
-function OSDdisplay ({ visible }: { visible: Variable<boolean> }) {
+function OSDvolume({ visible }: { visible: Variable<boolean> }) {
         const speaker = Wp.get_default()!.get_default_speaker()
-        const brightness = new Brightness()
 
         const value = Variable(0)
         const icon = Variable()
-        const value_what = Variable("")
 
         function change(value: number) {
-                switch (value_what.get()) {
-                        case "brightness":
-                                brightness.screen = value
-
-                        case "volume":
-                                speaker.volume = value
-                }
+                speaker.volume = value
         }
 
         let count = 0
@@ -106,25 +99,83 @@ function OSDdisplay ({ visible }: { visible: Variable<boolean> }) {
         }
 
         return <revealer 
-                revealChild={is_visible()}
+                revealChild={visible()}
 
                 setup={(self) => {
                         if (speaker) {
                                 self.hook(speaker, "notify::volume", () => {
                                         show(speaker.volume, speaker.volumeIcon)
-                                        value_what.set("volume")
+                                        brightness_visible.set(false)
                                 })
                                 self.hook(speaker, "notify::mute", () => {
                                         show(speaker.volume, speaker.volumeIcon)
-                                        value_what.set("volume")
-                                })
-                                
-                                self.hook(brightness, "notify::screen", () => {
-                                        show(brightness.screen, brightness.icon)
-                                        value_what.set("brightness")
+                                        brightness_visible.set(false)
                                 })
                         }
 
+                }}
+        >
+                <box className="content"
+                widthRequest={WIDTH}
+                hidden="true"
+                >
+                        <icon className="icon" 
+                        icon={icon()}
+                        css={`font-size: ${FONT_SIZE * 1.2}px;`}
+                        />
+
+                        <slider className="slider" 
+                        valign="3" 
+                        hexpand 
+                        value={value()}
+                        min="0"
+		        //heightRequest={HEIGHT}
+                        onDragged={({ value }) => change(value)}
+                        />
+
+                        <label className="value" 
+                        label={value(val => `${Math.round(val * 100)}`)}
+                        widthRequest={FONT_SIZE * 2.2}
+                        css={`font-size: ${FONT_SIZE}px;`}
+                        />
+                </box>
+        </revealer>
+
+}
+
+
+function OSDbrightness({ visible }: { visible: Variable<boolean> }) {
+        const brightness = new Brightness()
+
+        const value = Variable(0)
+        const icon = Variable()
+
+        function change(value: number) {
+                brightness.screen = value
+        }
+
+        let count = 0
+        function show(val: number, icon_name: string) {
+                visible.set(true)
+                icon.set(icon_name)
+                
+                value.set(val)
+
+                count++
+                timeout(TIMEOUT, () => {
+                        count--
+                        if (count === 0) visible.set(false)
+                })
+        }
+
+        return <revealer 
+                revealChild={visible()}
+
+                setup={(self) => {
+                        self.hook(brightness, "notify::screen", () => {
+                                volume_visible.set(false)
+                                show(brightness.screen, brightness.icon)
+                        })
                 }}
         >
                 <box className="content"
@@ -171,6 +222,9 @@ export default function main() {
         	
                 application={App}
         >
-                <OSDdisplay visible={is_visible}/>	
+                <box vertical>
+                        <OSDvolume visible={volume_visible}/>
+                        <OSDbrightness visible={brightness_visible}/>	
+                </box>
 	</window>
 }
