@@ -75,5 +75,5 @@ The styling was made with simplicity and minimalism in mind. To be flexible with
 #### Hyprlock
 ![Hyprlock](https://github.com/Danilogames220/my-dots/raw/V0/assets/images/hyprlock.png "Hyprlock light mode")
 #### Widgets
-![App-launcher](https://github.com/Danilogames220/my-dots/raw/V0/assets/videos/app-launccher.gif "App launcher")
+![App-launcher](https://github.com/Danilogames220/my-dots/raw/V0/assets/videos/app-launcher.gif "App launcher")
 
