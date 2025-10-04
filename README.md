@@ -26,7 +26,7 @@ The styling was made with simplicity and minimalism in mind. To be flexible with
 - Wallpaper randomiser
 
 ## Programs
-- [Hyprland]() (**Window manager**)
+- [Hyprland](https://hypr.land/) (**Window manager**)
 - [Hyprlock]() (**Screen lock**)
 - [Waybar]() (**Bar**)
 - [swww]() (**Wallpaper display**)
@@ -68,14 +68,12 @@ The styling was made with simplicity and minimalism in mind. To be flexible with
 
 ## Gallery
 ### Desktop
-#### Light
 ![Showcase 1](https://github.com/Danilogames220/my-dots/raw/V0/assets/images/showcase1.png "Showcase 1")
 ![Showcase 2](https://github.com/Danilogames220/my-dots/raw/V0/assets/images/showcase2.png "Showcase 2")
 ![Showcase 3](https://github.com/Danilogames220/my-dots/raw/V0/assets/images/showcase3.png "Showcase 3")
-![Showcase 4](https://github.com/Danilogames220/my-dots/raw/V0/assets/images/showcase4.png "Showcase 4")
-![Showcase 5](https://github.com/Danilogames220/my-dots/raw/V0/assets/images/showcase5.png "Showcase 5")
-#### Dark
-### Hyprlock
-![Hyprlock](https://github.com/Danilogames220/my-dots/raw/V0/assets/images/showcase1.png "Hyprlock light mode")
-### Widgets
+### Programs
+#### Hyprlock
+![Hyprlock](https://github.com/Danilogames220/my-dots/raw/V0/assets/images/hyprlock.png "Hyprlock light mode")
+#### Widgets
+![App-launcher](https://github.com/Danilogames220/my-dots/raw/V0/assets/videos/app-launccher.gif "App launcher")
 

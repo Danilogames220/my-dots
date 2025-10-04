@@ -46,11 +46,7 @@ function Notification( notif:Notifd.Notification) {
         const { START, CENTER, END } = Gtk.Align
 
         return <eventbox  widthRequest={N_WIDTH} heightRequest={N_HEIGHT}
-        setup={() => { notif.time?timeout(DEFAULT_TIMEOUT, () => {
-                    notif.dismiss()
-        }):do_nothing()
-
-        }}
+        //setup={() => {}}
         //onHoverLost={}
         //onClick={() => notif.dismiss()}
         >
