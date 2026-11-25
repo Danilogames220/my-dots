@@ -37,17 +37,7 @@ require("lazy").setup({
 	checker = { enabled = true, notify = false },
 })
 
-vim.cmd(require("config.settings"))
-
-require("config.custom-keybinds")
-
--- transparent bg
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
---vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
+require("config.settings")
 
 
-vim.o.tabstop = 8;
-vim.o.shiftwidth = 8;
-vim.o.softtabstop = 8;
+

@@ -8,7 +8,7 @@ return {
 				"pyright",
 
 				"clangd",
-				"harper_ls",
+				--"harper_ls",
 				"neocmake",
 
 				"html",

@@ -21,6 +21,7 @@ return {
 			win_options = {
 				number = false,
 				relativenumber = false,
+				--winbar = "%!v:lua.get_oil_winbar()",
 			},
 
 			-- Set to false to disable all of the below keymaps
@@ -32,7 +33,7 @@ return {
     				["<C-h>"] = { "actions.select", opts = { horizontal = true } },
     				["<C-t>"] = { "actions.select", opts = { tab = true } },
     				["<C-p>"] = "actions.preview",
-    				["<C-c>"] = { "actions.close", mode = "n" },
+    				["<C-f>"] = { "actions.close", mode = "n" },
     				["<C-l>"] = "actions.refresh",
     				["-"] = { "actions.parent", mode = "n" },
     				["_"] = { "actions.open_cwd", mode = "n" },
